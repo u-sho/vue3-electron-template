@@ -6,7 +6,7 @@ import electron from "vite-plugin-electron";
 import renderer from "vite-plugin-electron-renderer";
 import pkg from "./package.json";
 
-rmSync("dist-electron", { recursive: true, force: true });
+rmSync("dist_electron", { recursive: true, force: true });
 const sourcemap = !!process.env.VSCODE_DEBUG;
 const isBuild = process.argv.slice(2).includes("build");
 const VITE_DEV_SERVER_URL = new URL("http://127.0.0.1:3344");
@@ -55,7 +55,7 @@ export default defineConfig({
           build: {
             sourcemap,
             minify: isBuild,
-            outDir: "dist-electron/main",
+            outDir: "dist_electron/main",
             rollupOptions: {
               external: Object.keys(pkg.dependencies),
             },
@@ -74,7 +74,7 @@ export default defineConfig({
           build: {
             sourcemap,
             minify: isBuild,
-            outDir: "dist-electron/preload",
+            outDir: "dist_electron/preload",
             rollupOptions: {
               external: Object.keys(pkg.dependencies),
             },

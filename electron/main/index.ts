@@ -1,6 +1,6 @@
 // The built directory structure
 //
-// ├─┬ dist-electron
+// ├─┬ dist_electron
 // │ ├─┬ main
 // │ │ └── index.js    > Electron-Main
 // │ └─┬ preload
