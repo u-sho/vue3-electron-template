@@ -3,7 +3,6 @@ import { rmSync } from "fs";
 import { type Plugin, defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import electron from "vite-plugin-electron";
-import renderer from "vite-plugin-electron-renderer";
 import pkg from "./package.json";
 
 rmSync("dist_electron", { recursive: true, force: true });
@@ -82,10 +81,6 @@ export default defineConfig({
         },
       },
     ]),
-    // Use Node.js API in the Renderer-process
-    renderer({
-      nodeIntegration: true,
-    }),
   ],
   resolve: {
     alias: {
