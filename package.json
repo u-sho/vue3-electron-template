@@ -1,7 +1,13 @@
 {
   "name": "vue3-electron-template",
-  "version": "0.0.0",
+  "version": "0.1.0-beta.0",
   "private": true,
+  "main": "dist-electron/main/index.js",
+  "author": {
+    "name": "u-sho",
+    "email": "s.uechi@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -10,7 +16,15 @@
     "test:e2e": "playwright test",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+
+    "electron:dev": "vite --config vite.config.electron.ts",
+    "electron:build": "run-p type-check electron:build-only",
+    "electron:preview": "vite preview --config vite.config.electron.ts",
+    "electron:build-only": "vite build --config vite.config.electron.ts && electron-builder"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
   },
   "dependencies": {
     "pinia": "^2.0.26",
@@ -27,6 +41,8 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/test-utils": "^2.2.4",
     "@vue/tsconfig": "^0.1.3",
+    "electron": "^22.0.0",
+    "electron-builder": "^22.10.3",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
     "jsdom": "^20.0.3",
@@ -34,6 +50,8 @@
     "prettier": "^2.7.1",
     "typescript": "~4.7.4",
     "vite": "^3.2.4",
+    "vite-plugin-electron": "^0.10.4",
+    "vite-plugin-electron-renderer": "^0.11.3",
     "vitest": "^0.25.3",
     "vue-tsc": "^1.0.9"
   }
